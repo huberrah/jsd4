@@ -6,42 +6,25 @@
 // 3.	 Be sure to link up this file in your HTML doc
 /////////////////////////////////////////////////////////////////////
 
-alert("Enter values in the corresponding box");
-
-function calcLongestSide (pyA.value, pyB.value) {
-if (pyA.value.length > 0 && pyB.value.length > 0) {
+function calcLongestSide (a,b) {
 		
-		pyC.value = Math.sqrt(Math.pow(pyA.value,2) + Math.pow(pyB.value));
-		return pyC.value; **/
-	}
+		return Math.sqrt(Math.pow(a,2) + Math.pow(b,2));
 	
 }
 
-function calcCircumference (var r) {
-	if (r.value > 0) {
-	
-	c = (2 * Math.PI * r);
-	
-	return c;
-	}
-	
-	}
+function calcCircumference (radius) {	
+	return (2 * Math.PI * radius);
 
-function calcFahrenheitToCelcius (var tempF) {
-	
-	if (tempF.value > 0) {
-	
-	tempC = (tempF- 32) * 5/9;
-	return TempC;
-	}
-
-function calcCelciusToFarenheit (var tempC) {
-	
-	if (tempC.value > 0) {
-		
-	tempF = (tempC + 32)* 9/5;
-	
-	return tempF;
-	}
 }
+	
+
+function calcFahrenheitToCelcius (fahrenheit) {
+	
+	return (fahrenheit- 32) * (5/9);
+}
+
+function calcCelciusToFarenheit (celsius) {
+	
+	return (celsius * 9/5) + 32;
+	
 }
