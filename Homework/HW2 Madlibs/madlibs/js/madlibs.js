@@ -42,7 +42,7 @@ function generateStartup() {
 	// TODO: concatenate the fixed text with the two random values
 	//       to create a new startup idea like:
 	//       "A startup that is Apple, but for Trello"
-	startupIdea = "A startup that is " + index1 + ", but for " + index2;
+	startupIdea = "A startup that is " + index1 + ", but for " + index2 + "<br>";
 
 
 
@@ -65,7 +65,7 @@ favorites.push(startupIdea);
 
 // the Print Favorites function is called when
 // the "Print Favorites" button is clicked
-/**function printFavorites() {
+function printFavorites() {
 	// DONE: clear out favorites section each time
 	// before displaying new list of favorites
 	list.innerHTML = '';
@@ -75,16 +75,11 @@ favorites.push(startupIdea);
 	// - hint: loop through all the favorites
 	// - this should be stored in a variable named favoritesText
 	// - each favorite should have an html br element between it (EG: "<br>")
-    var fave = "";
 	
-	for(var i = 0; i < favorites.length; i++) {
-	fave + fave + fave[i] + “<br>”;
-
-	}
-
+	favorites.push(startupIdea);
 
 
 	// DONE: update the list element with the
-	// new list of favorites
-	list.innerHTML = favoritesText;
-} **/
+	// new list of favorites]
+	list.innerHTML = favorites;
+}
