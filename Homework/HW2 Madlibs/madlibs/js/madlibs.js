@@ -65,7 +65,7 @@ favorites.push(startupIdea);
 
 // the Print Favorites function is called when
 // the "Print Favorites" button is clicked
-function printFavorites() {
+/**function printFavorites() {
 	// DONE: clear out favorites section each time
 	// before displaying new list of favorites
 	list.innerHTML = '';
@@ -87,4 +87,4 @@ function printFavorites() {
 	// DONE: update the list element with the
 	// new list of favorites
 	list.innerHTML = favoritesText;
-}
+} **/
