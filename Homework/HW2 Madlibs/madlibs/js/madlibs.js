@@ -36,7 +36,7 @@ generateStartup();
 function generateStartup() {
 
 	index1 = startupX[Math.floor(Math.random() * startupX.length)];
-        index2 = startupY[Math.floor(Math.random() * startup7.length)];
+        index2 = startupY[Math.floor(Math.random() * startupY.length)];
 
 
 	// TODO: concatenate the fixed text with the two random values
