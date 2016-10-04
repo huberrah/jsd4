@@ -35,15 +35,14 @@ generateStartup();
 // the "Generate New Startup" button is clicked
 function generateStartup() {
 
-	index1 = startupX[Math.floor(Math.random() * startupX.length)];
-        index2 = startupY[Math.floor(Math.random() * startupY.length)];
+	var index1 = startupX[Math.floor(Math.random() * startupX.length)];
+    var index2 = startupY[Math.floor(Math.random() * startupY.length)];
 
 
 	// TODO: concatenate the fixed text with the two random values
 	//       to create a new startup idea like:
 	//       "A startup that is Apple, but for Trello"
-	startupIdea = "A startup that is ” + index1 + ”, but for ” + index2;
-
+	startupIdea = "A startup that is ” + index1 + " but for ” + index2;
 
 
 
