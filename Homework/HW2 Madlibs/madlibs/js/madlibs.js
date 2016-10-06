@@ -42,7 +42,7 @@ function generateStartup() {
 	// TODO: concatenate the fixed text with the two random values
 	//       to create a new startup idea like:
 	//       "A startup that is Apple, but for Trello"
-	startupIdea = "A startup that is " + index1 + ", but for " + index2 + "<br>";
+	startupIdea = "A startup that is " + index1 + ", but for " + index2;
 
 
 
