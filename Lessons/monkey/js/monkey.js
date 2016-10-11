@@ -15,21 +15,22 @@ for retrieving properties (dot notation and brackets).
 
 */
 
-var Monkey = function(name, species,foodsEaten) {
+function Monkey(name, species) {
 this.name = name;
 this.species = species;
-this.foodsEaten = foodsEaten;
+this.foodsEaten = [];
+};
 
-}
+Monkey.prototype = {
+	eatSomething: function(food) {
+		console.log("eatSomething", food);
+		this.foodsEaten.push(food);
+	},
+	
+	introduce:  function() {
+	console.log("fn eatSomething");
+	}
 
- Monkey.prototype = {
+};
 
-eatSomething(food) {
-
-}
-
-introduce() {
-console.log("This is a" + Monkey.name + "of" +  Monkey.species + "who eats" + foodsEaten);
-
-}
-
+var monkey1 = new Monkey("Jack", "Howler");
