@@ -29,8 +29,10 @@ Monkey.prototype = {
 	
 	introduce:  function() {
 	console.log("fn eatSomething");
+	return "My name is " + this.name + " I am of the " + this.species "I have been eating " + this.foodsEaten.join(",");
 	}
 
 };
 
 var monkey1 = new Monkey("Jack", "Howler");
+monkey1.eatSomething("Pineapple");
