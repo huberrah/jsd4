@@ -20,8 +20,11 @@ The first console.log should return the following:
 "What a surprise in lyon. 2016-02-23T06:47:30-08:00"
 
 */
-for (i in flickerObj) {
-console.log(flickerObj.date_taken);
+flickerObj.items.forEach(titleAndDate);
+
+function titleAndDate(items) 
+{
+console.log(items.title + " " + items.date_taken); 
 }
 
 /*
@@ -29,9 +32,13 @@ Part 3. Create a new array called 'links'. Iterate through the
 items array in flickerObj and store the the links to each 
 item in the 'links' array.
 */
-var links = new Array ();
-for(i in flickerObj) {
-links[i] = flickerObj[i];
+
+var links = [];
+
+flickerObj.items.forEach(storedLinks);
+
+function storedLinks(items) {
+links.push(items.link);
 }
 
 /*
