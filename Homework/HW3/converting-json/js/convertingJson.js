@@ -49,6 +49,4 @@ http://jsonlint.com/
 Did it create a valid JSON string?
 */ 
 var jsonStringForLinks = JSON.stringify(links);
-for (i in links) {
-console.log(links[i]);
-}
+console.log(jsonStringForLinks);
