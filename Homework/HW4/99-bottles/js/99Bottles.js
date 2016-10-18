@@ -17,11 +17,11 @@ for(i = 99; i >= 0; i--){
 
 	else if(i==2){
 	l1 = i + " bottles of beer on the wall, " + i + " bottles of beer.</br>"
-	l2 = "Take one down and pass it around, " + (i-1) + " bottles of beer on the wall."
+	l2 = "Take one down and pass it around, " + (i-1) + " bottle of beer on the wall."
 	}	 
 
 	else if(i==1) {
-	l1 = i + "bottle of beer on the wall, " + i + "bottle of beer.<br>"
+	l1 = i + "bottle of beer on the wall, " + i + " bottle of beer.<br>"
 	l2 = "Take one down and pass it around, no more bottles of beer on the wall"
 	}
 	else if(i==0){
