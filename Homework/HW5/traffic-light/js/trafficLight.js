@@ -3,7 +3,7 @@
 var rltbtn = document.querySelector(".stop-button");
 var yltbtn = document.querySelector(".slow-button");
 var gltbtn = document.querySelector(".go-button");
-
+var cltbtn = document.querySelector(".caution-button");
 var tlt = document.querySelector("#traffic-light");
 
 
@@ -30,6 +30,12 @@ tlt.classList.remove('slow');
 console.log(tlt);
 }
 
+function fnCaution() {
+tlt.classList.remove('stop','go','slow');
+timer = setInterval(function caution() {
+tlt.classList.toggle('slow');
+}, 2000);
+}
 // Events
 // ----------------------------------------------
 
@@ -39,5 +45,5 @@ console.log(tlt);
 rltbtn.addEventListener("click", fnStop);
 yltbtn.addEventListener("click", fnSlow);
 gltbtn.addEventListener("click", fnGo);
-
+cltbtn.addEventListener("click", fnCaution);
 
