@@ -1,0 +1,17 @@
+
+
+//call back
+
+function getGif(tag) {
+var url = "http://api.giphy.com/v1/gifs/feqkVgjJpYtjy?api_key=dc6zaTOxFJmzC" + tag;
+jQuery.getJSON(url, getJson);
+}
+
+function getJson(json) {
+console.log("getJson", json");
+
+var img = document.createElement("img");
+img.src = json.data.image_url;
+document.body.appendChild("img");
+
+}
