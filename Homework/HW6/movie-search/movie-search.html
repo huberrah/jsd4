@@ -32,6 +32,16 @@
     </div>
 
     <ul class="results">
+        
+        <script id="movies-template" type ="text/x-handlebars-template">
+            {{#each movies}}
+            <li>
+            <img src ="{{Posters}}">
+            <h2>{{Title}}</h2>
+            </li>
+            {{/each}}
+            </script>
+
 
         <!-- Sample Movie Template:
                 <li id="tt0181852">
@@ -39,7 +49,8 @@
                     <p>Terminator 3: Rise of the Machines</p>
                 </li>
         -->
-
+        
+<!--
         <li id="tt0088247">
             <img src="http://ia.media-imdb.com/images/M/MV5BODE1MDczNTUxOV5BMl5BanBnXkFtZTcwMTA0NDQyNA@@._V1_SX300.jpg">
             <p>The Terminator</p>
@@ -54,6 +65,7 @@
             <img src="http://ia.media-imdb.com/images/M/MV5BMTk5NzM1ODgyN15BMl5BanBnXkFtZTcwMzA5MjAzMw@@._V1_SX300.jpg">
             <p>Terminator 3: Rise of the Machines</p>
         </li>
+ -->
 
     </ul>
 
@@ -95,8 +107,8 @@
 
 
 </aside>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="js/movieSearch.js"></script>
+<script src ="js/handlebars-v4.0.5.js"></script>
 </body>
 </html>
