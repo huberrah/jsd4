@@ -25,7 +25,7 @@ function getMovies() {
             console.log(search);
             }
     
-    var url = "http://www.omdbapi.com/?s=" + search;
+    var url = "https://www.omdbapi.com/?s=" + search;
     
     $.getJSON(url, updateMovies);
 }
