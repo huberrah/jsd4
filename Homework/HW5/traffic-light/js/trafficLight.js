@@ -5,7 +5,7 @@ var yltbtn = document.querySelector(".slow-button");
 var gltbtn = document.querySelector(".go-button");
 var cltbtn = document.querySelector(".caution-button");
 var tlt = document.querySelector("#traffic-light");
-var timer;
+var timer = null;
 var cautionOn = false;
 
 // Structure
@@ -47,6 +47,7 @@ function fnCaution() {
 function stopTimer(){
   clearInterval(timer);
   cautionOn = false;
+  timer = null;
 }
 // Events
 // ----------------------------------------------

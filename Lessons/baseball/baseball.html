@@ -32,16 +32,25 @@
 
 
 <!-- TODO: put handlebars templates here -->
-<script id="restaurant-template" type ="text/x-handlebars-template">
+
+<script id="date-template" type ="text/x-handlebars-template">
+    <h2>{{mockdata.dateDisplay</h2>
+</script>
+
+<script id="game-template" type ="text/x-handlebars-template">
 {{#each games}}
 <li>
     <p>{{time}}</p>
+    {{#if home}}
     <div>TEAM HOME</p>
                 <img src ="{{logo}}">
                 <p>{{name}}</p>
         </div>
         <div class="record"> RECORD {{wins}}-{{losses}}</div>
     </div>
+    {{/if}}
+    
+    {{#if away}}
     <div class ="team away">
         <div>
             <img src = "{{logo}}">
@@ -50,6 +59,8 @@
         <div class="record"> RECORD {{wins}}-{{losses}}
         </div>
     </div>
+    {{/away}}
+    
 </li>
 {{/each}}
     </script>
