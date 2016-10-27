@@ -20,10 +20,12 @@ form.addEventListener('submit', getMovies)
 function getMovies() {
     event.preventDefault();
     
-    var search = movies.value;
-    console.log(search);
+        if (search  != ""){
+            var search = movies.value;
+            console.log(search);
+            }
     
-    var url = "http://www.omdbapi.com/?i=" + search;
+    var url = "http://www.omdbapi.com/?s=" + search;
     
     $.getJSON(url, updateMovies);
 }
