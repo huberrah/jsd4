@@ -5,6 +5,7 @@ var movies = document.querySelector(".search");
 var results = document.querySelector(".results");
 
 var moviesTemplate = document.querySelector("#movies-template");
+var fnTemplate, html, moviesTemplate;
 
 // Structure
 // ----------------------------------------------
@@ -12,18 +13,23 @@ var moviesTemplate = document.querySelector("#movies-template");
 
 // Events
 // ----------------------------------------------
-form.addEventListener('submit', getMovies)
+form.addEventListener('submit', getMovies);
 
 
 // Event handlers
 // ----------------------------------------------
-function getMovies() {
+function getMovies(event) {
     event.preventDefault();
     
         if (search  != ""){
             var search = movies.value;
             console.log(search);
+            movies.innerHTML = "";
             }
+    
+        else {
+            return;
+        }
     
     var url = "https://www.omdbapi.com/?s=" + search;
     
@@ -37,25 +43,35 @@ function updateMovies(json){
     
     console.log('updateMovies',json);
     results.innerHTML = '';
+    if (json.Search.Title != "") {
     json.Search.forEach(createMovies);
-
+    }
+    else {
+        return;
+    }
     //Handlebars
-    var fnTemplate = Handlebars.compile(moviesTemplate.innerHTML);
-    var html = fnTemplate(json);
-    results.innerHTML = html;
+    fnTemplate = Handlebars.compile(moviesTemplate.innerHTML);
+
+    //html = fnTemplate(json);
+    //results.innerHTML = html;
     
 }
 
 function createMovies(movies){
-    console.log("createMovies");
     var li = document.createElement("li");
     var img = document.createElement("img");
-    var h2 = document.createElement("h2");
     var p = document.createElement("p");
+ //   var p = document.createElement("p");
     
+    if (movies.Poster != ""){
     img.src = movies.Poster;
-    h2.textContent = movies.Title;
+    }
+    console.log(movies.Title);
+    p.innerHTML = movies.Title;
     
-    results.appendChild(li)
-    li.appendChild
+  //Add results
+    li.appendChild(img);
+    li.appendChild(p);
+    results.appendChild(li);
+    
 }

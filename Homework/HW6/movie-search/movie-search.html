@@ -21,24 +21,21 @@
     </form>
 
     <div class="details">
-        <div class="image">
-            <img class="poster" src="http://ia.media-imdb.com/images/M/MV5BZDM2YjYwYWMtMWZlNi00ZDQxLWExMDctMDAzNzQ0OTkzZjljXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg">
-        </div>
-        <div class="text">
-            <h2 class="title">Terminator 2: Judgment Day</h2>
-            <p class="plot">A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her young son, John Connor, from a more advanced cyborg, made out of liquid metal.</p>
-            <p><a class="imdb-link" href="http://www.imdb.com/title/tt0103064">View on IMDb</a></p>
-        </div>
+        
+        <ul class="results">
+            
+            
+        </ul>
     </div>
 
-    <ul class="results">
-        
-        <script id="movies-template" type ="text/x-handlebars-template">
+            <script id="movies-template" type ="text/x-handlebars-template">
             {{#each movies}}
-            <li>
-            <img src ="{{Posters}}">
-            <h2>{{Title}}</h2>
+            {{#if Title}}
+            <li id = "{{imdbID}}">
+            //<img src ="{{Posters}}">
+            <p>{{Title}}</p>
             </li>
+            {{/if}}
             {{/each}}
             </script>
 
@@ -67,7 +64,6 @@
         </li>
  -->
 
-    </ul>
 
 </main>
 
