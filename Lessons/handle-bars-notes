@@ -1,0 +1,19 @@
+1.  Get the Source from the DOM into a JS variable
+2.  Compile the Template
+//JSON comes in this part at the end
+3.  Take the HTML source and add it as a function
+4.  Pass the JSON and gives us the final rendered HTML as a string
+//String in - string out
+
+
+data [{
+id :  1,
+url :  http://www.google.com,
+rating :  "g",
+images : {
+	original:{
+	http://www.google.com/img123
+	}
+	}
+
+]}
