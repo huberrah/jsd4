@@ -3,9 +3,11 @@
 var form = document.querySelector("form");
 var movies = document.querySelector(".search");
 var results = document.querySelector(".results");
-
 var moviesTemplate = document.querySelector("#movies-template");
-var fnTemplate, html, moviesTemplate;
+var detailsTemplate = document.querySelector("#details-template");
+var details = document.querySelector(".details");
+
+var fnTemplate, fnTemplate2, html, html2, targetVal;
 
 // Structure
 // ----------------------------------------------
@@ -14,6 +16,7 @@ var fnTemplate, html, moviesTemplate;
 // Events
 // ----------------------------------------------
 form.addEventListener('submit', getMovies);
+results.addEventListener('click', getDetails);
 
 
 // Event handlers
@@ -52,26 +55,42 @@ function updateMovies(json){
     //Handlebars
     fnTemplate = Handlebars.compile(moviesTemplate.innerHTML);
 
-    //html = fnTemplate(json);
-    //results.innerHTML = html;
-    
+    html = fnTemplate(json);
+    results.innerHTML = html;
 }
 
 function createMovies(movies){
-    var li = document.createElement("li");
-    var img = document.createElement("img");
-    var p = document.createElement("p");
+  //  var li = document.createElement("li");
+  //  li.setAttribute("id", movies.imdbID);
+  // var img = document.createElement("img");
+  //  var p = document.createElement("p");
  //   var p = document.createElement("p");
-    
-    if (movies.Poster != ""){
-    img.src = movies.Poster;
-    }
+ //   img.src = movies.Poster;
     console.log(movies.Title);
-    p.innerHTML = movies.Title;
+   // p.innerHTML = movies.Title;
     
   //Add results
-    li.appendChild(img);
-    li.appendChild(p);
-    results.appendChild(li);
+  //  li.appendChild(img);
+  //  li.appendChild(p);
+  //  results.appendChild(li);
+  
+}
+
+function getDetails(event) {
+   // event.preventDefault();
+    console.log("getDetails");
+    targetVal = event.target.parentNode.id;
+    console.log(targetVal);
+    var url = "https://www.omdbapi.com/?i=" + targetVal;
+    console.log(url);
+    $.getJSON(url, fnUpdateDetails);
+}
+
+function fnUpdateDetails(json) {
+    console.log('fnUpdateDetails', json);
+    details.innerHTML = '';
+    //pass the JSON forward to the Template construlctor to compile the handlebar
+    fnTemplate = Handlebars.compile(detailsTemplate.innerHTML);
+    details.innerHTML = fnTemplate(json);
     
 }

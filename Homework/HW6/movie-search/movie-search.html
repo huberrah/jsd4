@@ -19,26 +19,44 @@
     	<input class="search" placeholder="Movie title...">
     	<button type="submit">Search</button>
     </form>
-
-    <div class="details">
-        
+    
+        <div class = "details"> </div>
         <ul class="results">
             
+            
+            <!--<div class="details">-->
+            <script id = "details-template" type = "text/x-handlesbars-template">
+                
+                <div class="image">
+                <img class="poster" src="{{Poster}}">
+                </div>
+                <div class="text">
+                <h2 class="title">{{Title}}</h2>
+                <p class="plot">{{Plot}}</p>
+                <p><a class="imdb-link" href="http://www.imdb.com/title/{{imdbID}}">View on IMDb</a></p>
+                </div>
+                
+                </script>
+            <!--</div>-->
+
+            
+            
+            <script id="movies-template" type ="text/x-handlebars-template">
+                {{#each Search}}
+                    <li id="{{imdbID}}">
+                        <img src ="{{Poster}}">
+                        <p>{{Title}}</p>
+                    </li>
+                {{/each}}
+                </script>
+
+
             
         </ul>
     </div>
 
-            <script id="movies-template" type ="text/x-handlebars-template">
-            {{#each movies}}
-            {{#if Title}}
-            <li id = "{{imdbID}}">
-            //<img src ="{{Posters}}">
-            <p>{{Title}}</p>
-            </li>
-            {{/if}}
-            {{/each}}
-            </script>
 
+           
 
         <!-- Sample Movie Template:
                 <li id="tt0181852">
@@ -103,8 +121,9 @@
 
 
 </aside>
+<!-- Handle bars needs to come as the first JS -->
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="js/movieSearch.js"></script>
-<script src ="js/handlebars-v4.0.5.js"></script>
 </body>
 </html>
