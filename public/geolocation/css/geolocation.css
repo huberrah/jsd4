@@ -1,0 +1,13 @@
+.body {
+
+	background:thistle;
+	color: navy;
+	font-size: 16px;
+	margin: 50px auto;
+}
+
+.map {
+    width: 600px;
+    height: 400px;
+    margin: auto;
+}

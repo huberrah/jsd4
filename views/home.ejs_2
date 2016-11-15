@@ -1,0 +1,10 @@
+<HTML>
+<head>
+</head>
+<body>
+
+<script src="/js/contacts/react-15.0.0.js"></script>
+<script src="/js/contacts/react-dom-15.0.0.js"></script>
+<script src="/js/contacts/browser.min.js"></script>
+</body>
+</HTML>

@@ -17,7 +17,8 @@
       <a href="#"><h1>Feedr</h1></a>
       <nav>
         <ul>
-          <li><a href="#">News Source: <span>Source Name</span></a>
+          <li><a href="#">News Source:
+              <span>Source Name</span></a>
             <ul>
                 <li id ="tnw"><a href="#">The next web</a></li>
                 <li id ="mtvnews"><a href="#">MTV news</a></li>
@@ -25,6 +26,7 @@
             </ul>
           </li>
         </ul>
+        
         <section id="search">
           <input type="text" name="name" value="">
           <a href="#"><img src="images/search.png" alt="" /></a>
@@ -33,6 +35,8 @@
       <div class="clearfix"></div>
     </section>
   </header>
+  
+  <!-- Pop-Up class displays -->
   <div id="popUp" class="loader hidden">
     <a href="#" class="closePopUp">X</a>
     <div class="container">
@@ -43,41 +47,43 @@
       <a href="#" class="popUpAction" target="_blank">Read more from source</a>
     </div>
   </div>
+  
   <section id="main" class="container">
-    <article class="article">
-      <section class="featuredImage">
-        <img src="images/article_placeholder_1.jpg" alt="" />
-      </section>
-      <section class="articleContent">
-          <a href="#"><h3>NO RECORDS ARE CURRENTLY FOUND</h3></a>
-          <h6>Choose a Source from the News Source</h6>
-      </section>
-      <section class="impressions">
-          :)
-      </section>
-      <div class="clearfix"></div>
- 
- <script id="news-template" type=type = "text/x-handlesbars-template">
-    <!-- Begin Handlesbars -->
-     {{#each articles}}
       <article class="article">
-      <section class="featuredImage">
-        <img src="{{urlToImage}}" alt="" />
-      </section>
-      <section class="articleContent">
-      <a href="{{url}}"><h3>{{title}}</h3></a>
-      <h6>{{author}}</h6>
-      </section>
-      <section class="impressions">
-      {{publishedAt}}
-      </section>
-      <div class="clearfix"></div>
-    </article>
-    {{/each}}
-</script>
- 
-  </section>
-
+          <section class="featuredImage">
+              <img src="images/article_placeholder_1.jpg" alt="" />
+          </section>
+          <section class="articleContent">
+              <a href="#"><h3>NO RECORDS ARE CURRENTLY FOUND</h3></a>
+              <h6>Choose a Source from the News Source</h6>
+          </section>
+          <section class="impressions">
+              :)
+          </section>
+          <div class="clearfix"></div>
+      </article>
+  
+  
+  <script id="news-template" type=type = "text/x-handlesbars-template">
+     
+      {{#each articles}}
+      <article class="article" id = "{{url}}" title = "{{title}}" description="{{description}}">
+            <section class="featuredImage">
+                <img src="{{urlToImage}}" alt="icon" />
+            </section>
+            <section class="articleContent">
+            <a href="#"><h3>{{title}}</h3></a>
+            <h6>{{author}}</h6>
+          </section>
+            <section class="impressions">
+            {{publishedAt}}
+          </section>
+            <div class="clearfix"></div>
+        </article>
+      {{/each}}
+      
+      </script>
+    </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="js/feedr.js"></script>
