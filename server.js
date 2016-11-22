@@ -1,10 +1,26 @@
 //configure express to use ejs
 //npm install ejs --save
+//npm install twitter --save
 
 var express = require('express');
 var app = express();
 var router = express.Router();
+//twitter app var twitter = require('twitter');
+//consumer_key
+//consumer_secret
+//access_token_key
+//access_token_secret
+//access_token_secret: process.env.access_token_secret
+//twitter app var client = new twitter({
+//consumer_key
+//consumer_secret
+//access_token_key
+//access_token_secret:  
+//access_token_secret: process.env.access_token_secret
 
+//var params = { screen_name: 'potus'};
+
+)};
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
@@ -15,6 +31,18 @@ app.set('views',__dirname + '/views');
 router.get('/', function(req, res){
 	res.render('home');
 })
+
+
+//twitter app router.get('/timeline', function(req, res) {
+// var params = {
+// 	screen_name: 'potus'
+// };
+// client.get('/statuses/user_timeline', params, functions(error, tweets, response) {
+// 
+// res.send(JSON.stringify(tweets));
+// });
+// });
+
 
 //code added
 
