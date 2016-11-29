@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Update" representedClassName="Status.Update" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="updates" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="Status.User" syncable="YES">
+        <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="updates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Update" inverseName="user" inverseEntity="Update" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Update" positionX="0" positionY="81" width="128" height="88"/>
+        <element name="User" positionX="-36" positionY="9" width="128" height="133"/>
+    </elements>
+</model>

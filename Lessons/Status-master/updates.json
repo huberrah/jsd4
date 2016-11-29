@@ -1,0 +1,36 @@
+[
+  {
+    "text": "This is a status update.",
+    "date": 1433986360,
+    "user": {
+      "name": "James Martinez",
+      "username": "james",
+      "bio": "I am James.",
+      "link": "http://example.com",
+      "city": "San Francisco"
+    }
+  },
+  {
+    "text": "I like burritos.",
+    "date": 1433986397,
+    "user": {
+      "name": "Pat DeSantis",
+      "username": "pdesantis",
+      "bio": "I am Pat.",
+      "link": "http://example.com",
+      "city": "San Francisco"
+    }
+  },
+  {
+    "text": "Paper airplanes are fun.",
+    "date": 1433986445,
+    "user": {
+      "name": "Tim Walsh",
+      "username": "classictim",
+      "bio": "I am Tim.",
+      "link": "http://example.com",
+      "city": "San Francisco"
+    }
+  }
+]
+

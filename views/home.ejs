@@ -9,7 +9,25 @@
       <h1>Rob</h1>
 
       <h2>About me:  I'm a QA Lead in San Francisco.  I help make bug-tracking awesome and part of that is JS.  I hope to learn those things in this course.</h2>
-      <ul>
+     
+
+<form action="" id="message-form">
+	<div id="top">
+	<label>
+ 		<input type="url" id="url" value="">
+  	</label>
+  	<label>
+    <!--<input type="text" id="data">-->
+  	</label>
+  	<label>
+    		<button id="get">GET</button>
+        </label>
+	</div>
+	<div id="bottom">
+  	<textarea id="output"></textarea>
+	</div>
+</form>
+ <ul>
         <li>Twitter:  @dasmadrigal</li>
         <li>Facebook /huberrob </li>
         <li>LinkedIn /huberrob </li>
@@ -26,18 +44,30 @@
     <li><a href ="Homework/HW7/feedr/feedr.html">Homework 7</a></li>
 	</ol>
 <!-- jquery must be before the js line -->
-<!--<script src ="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src ="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDIIk9FUdVhGNEyqH-aBRH6PsyflXM_p78",
+    authDomain: "cors-db.firebaseapp.com",
+    databaseURL: "https://cors-db.firebaseio.com",
+    storageBucket: "cors-db.appspot.com",
+    messagingSenderId: "500614585161"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src ="/js/cors.js"></script>
 //<script>
-var url = 
-'/timeline";
+//var url = 
+//'/timeline";
 //$.getJSON(url, handleTweets);
 //json.forEach(function(item) {var p = document.createElement("p");}
 //p.innerText = item.text;
 //body.appendChild(p);
 //}) 
 //function handleTweets(json){
-console.log("handleTweets", json);
-}-->
+//console.log("handleTweets", json);
+//}-->
 </script> 
    </body>
   </html>
