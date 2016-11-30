@@ -49,7 +49,7 @@ function loadState() {
 
 function createMessages(results) {
     console.log('createMessages', results.val());
-    var newMessages = results.val();
+    var c = results.val();
 
     //reset message board
     messageBoard.innerHTML = '';
