@@ -18,34 +18,85 @@ firebase.initializeApp(config);
 // ------------------------------------------------
 var db = firebase.database();
 var form = document.querySelector("form");
-var statusEl = document.querySelector("status");
-var url = document.querySelector("url");
+var set = document.querySelector(".resultSet");
+var urlField = document.querySelector('#url');
+var outputField = document.getElementById('output');
+var get = document.querySelector('#get');
+var push = document.querySelector('#push');
+var urlEl, statusEl, result;
+
 
 // Events
 // ------------------------------------------------
-form.addListener('submit', submitForm);
 document.addEventListener('DOMContentLoaded', loadState);
+get.addEventListener('click', makeCorsRequest);
+push.addEventListener('click', submitForm)
+
+// Cors function
+// ------------------------------------------------
+function makeCorsRequest(event) {
+    event.preventDefault();
+    urlField.innerHTML = '';
+    outputField.innerHTML = '';
+    console.log('fn makeCorsRequest');
+    
+    doCORSRequest({
+        method: this.id === 'post' ? 'POST' : 'GET',
+        url: urlField.value,},
+        function printResult(result){
+                  outputField.value = result;
+                  this.result = result;
+        });
+}
+
 
 
 // Firebase function
 // ------------------------------------------------
 
-function submitForm(event) {
+function submitForm() {
+    console.log('fn submitForm');
     event.preventDefault();
-    var status = statusEl.value;
-    statusEl.value = '';
+    var status = outputField.value;
     console.log(status);
     
     var ref = db.ref('status');
-    //Create a message object
     
     var statusObj = {
-    url: url.value,
-    content: status
+    url: urlField.value,
+    content: outputField.value
     }
+   
+    
     
     //push the status to the DB
     ref.push(statusObj);
+}
+
+function loadState() {
+    db.ref('status').on('value', createStatuses);
+}
+
+
+function createStatuses(results) {
+    console.log('createStatuses', results.val());
+    var newStatuses = results.val();
+    
+    //reset message board
+    set.innerHTML = '';
+    
+    for(var id in newStatuses) {
+        createStatus(id, newStatuses[id]);
+    }
+
+    
+}
+
+function createStatus(id, status){
+    var li = document.createElement("li");
+    li.innerHTML = status.url + ' ' + status.content;
+    li.id = urlField.value;
+    set.appendChild(li);
 }
 
 //Console JS
@@ -57,79 +108,22 @@ jQuery.ajaxPrefilter(function(options) {
     }
 });
 
-// JavaScript Documentvar links, failedLinks, nextPage, linkUrljson,status;
-var links, failedLinks, nextPage, linkUrljson,status;
-var targetLinks = [];
-var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
-//set the domain to by-pass cors
-//var document.domain = "acrobat.adobe.com";
-
-function verifyWindows() {
-    failedLinks = [];
-    targetLinks = [];
-    
-    
-    
-    links = window.document.links;
-    var linkUrl = links.href;
-    
-    for (linkUrl in links) {
-        json = "";
-        status = 0;
-        thisUrl = links[linkUrl].toString();
-        json = ajaxReq(thisUrl);
-        status = getStatus(json);
-        
-        console.log (thisUrl + " has status: " + status);
-        //detect the domain
-        var matches = thisUrl.match(/^https?\:\/\/([^\/:?#]+)(?:[\/:?#]|$)/i);
-        var domains = matches&&matches[1];
-        console.log(domains);
-        
-        if(status === 0 || status === undefined || status >= 400) {
-            console.log("Link " + thisUrl + "failed : " + status );
-            failedLinks.push(thisUrl);
-        }
+//this function is modified from Cors-HerokuApp which belongs to Rob Wu
+function doCORSRequest(options, printResult) {
+    var x = new XMLHttpRequest();
+    x.open(options.method, 'https://cors-anywhere.herokuapp.com/' + options.url);
+    console.log("Url is "+ options.url);
+ 
+    x.onload = x.onerror = function() {
+        printResult(x.status);
+    };
+    if (/^POST/i.test(options.method)) {
+        x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     }
     
-}
-
-function localcallback() {
-    
-    console.log('callback ');
-    /**var callback = $.ajax({
-     url: "https://adobe.com/fakeurl",
-     type: 'HEAD',
-     success: function (json) {
-     //console.log(thisUrl + " has status of " + json.status);
-     },
-     error: function(){
-     //console.log("Error");
-     },
-     async:  false
-					});
-     return callback; **/
-}
-
-function ajaxReq(thisUrl) {
-    var response = $.ajax({
-                          url: "https://cors-anywhere.herokuapp.com/"+thisUrl,
-                          type: 'HEAD',
-                          success: function (json) {
-                          },
-                          error: function(){
-                          
-                          },
-                          async:  false
-                          });
-    
-    return (response);
-    
-    
-}
-
-function getStatus(json) {
-    return this.json.status;
+    x.send(options.data);
+    urlEl = options.url
+    statusEl = x.status;
 }
 
 
@@ -140,44 +134,5 @@ function sleep(milliseconds) {
             break;
         }
     }
-}
-
-//this function belongs to Rob Wu
-function doCORSRequest(options, printResult) {
-    var x = new XMLHttpRequest();
-    x.open(options.method, cors_api_url + options.url);
-    x.onload = x.onerror = function() {
-        printResult(
-                    /**options.method + ' ' +**/ options.url + ' ' +
-                    x.status
-                    //+ x.statusText + '\n\n' +
-                    //(x.responseText || '')
-                    );
-    };
-    if (/^POST/i.test(options.method)) {
-        x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    }
-    x.send(options.data);
-}
-
-(function() {
- var urlField = document.getElementById('url');
- //var dataField = document.getElementById('data');
- var outputField = document.getElementById('output');
- document.getElementById('get').onclick = function(e) {
- e.preventDefault();
- doCORSRequest({
-               method: this.id === 'post' ? 'POST' : 'GET',
-               url: urlField.value,
-               //data: dataField.value
-               }, function printResult(result) {
-               outputField.value = result;
-               console.log(result);
-               });
- };
- })();
-if (typeof console === 'object') {
-    console.log('// To test a local CORS Anywhere server, set cors_api_url. For example:');
-    console.log('cors_api_url = "http://localhost:8080/"');
 }
 
