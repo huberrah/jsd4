@@ -93,6 +93,7 @@ function createStatuses(results) {
 }
 
 function createStatus(id, status){
+    event.preventDefault();
     var li = document.createElement("li");
     li.innerHTML = status.url + ' ' + status.content;
     li.id = urlField.value;
@@ -110,6 +111,7 @@ jQuery.ajaxPrefilter(function(options) {
 
 //this function is modified from Cors-HerokuApp which belongs to Rob Wu
 function doCORSRequest(options, printResult) {
+    event.preventDefault();
     var x = new XMLHttpRequest();
     x.open(options.method, 'https://cors-anywhere.herokuapp.com/' + options.url);
     console.log("Url is "+ options.url);
